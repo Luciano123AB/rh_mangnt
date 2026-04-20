@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <x-user-bar />
 
     {{ $slot }}
 
