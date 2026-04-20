@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticable
 {
+    
+    use Notifiable;
+
     public function detail() {
         //Each user has one user_details:
         return $this->hasOne(UserDetail::class);
