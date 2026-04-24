@@ -1,7 +1,7 @@
 <x-layout-app page-title="Humam Resources">
     <div class="w-100 p-4">
 
-        <h3>Humam Resources Colaborators</h3>
+        <h3>Human Resources Colaborators</h3>
 
         <hr>
 
