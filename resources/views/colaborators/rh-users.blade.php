@@ -12,7 +12,7 @@
             </div>
         @else
             <div class="mb-3">
-                <a href="#" class="btn btn-primary">Create a new colaborator</a>
+                <a href="{{ route("colaborators.new-colaborator") }}" class="btn btn-primary">Create a new colaborator</a>
             </div>
 
             <table class="table w-50" id="table">
@@ -30,7 +30,7 @@
                             @php
                                 $permissions = json_decode($colaborator->permissions);
                             @endphp
-                            <td>{{ implode($permissions, ",") }}</td>
+                            <td>{{ implode(",", $permissions) }}</td>
                             <td>
                                 <div class="d-flex gap-3 justify-content-end">
                                     <a href="#" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>

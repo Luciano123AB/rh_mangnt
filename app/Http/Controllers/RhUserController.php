@@ -43,7 +43,7 @@ class RhUserController extends Controller
         $user->email = $request->email;
         $user->role = "rh";
         $user->department_id = $request->select_department;
-        $user->permissions = "['rh']";
+        $user->permissions = '["rh"]';
         $user->save();
 
         return redirect()->route("colaborators.rh-users")->with("success", "Colaborator created successfully.");
