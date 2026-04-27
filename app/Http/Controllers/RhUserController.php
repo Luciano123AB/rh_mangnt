@@ -36,7 +36,7 @@ class RhUserController extends Controller
             "select_department" => "required|exists:departments,id"
         ]);
 
-        //Create ner rh user:
+        //Create new rh user:
         $user = new User();
         
         $user->name = $request->name;
