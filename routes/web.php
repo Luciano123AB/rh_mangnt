@@ -29,4 +29,7 @@ Route::middleware("auth")->group(function() {
     Route::get("/rh-users", [RhUserController::class, "index"])->name("colaborators.rh-users");
     Route::get("/rh-users/new_colaborator", [RhUserController::class, "newColaborator"])->name("colaborators.new-colaborator");
     Route::post("/rh-users/create_colaborator", [RhUserController::class, "createRhColaborator"])->name("colaborators.create-colaborator");
+
+    Route::get("/rh-users/edit_colaborator/{id}", [RhUserController::class, "editRhColaborator"])->name("colaborators.edit-colaborator");
+    Route::post("/rh-users/update_colaborator", [RhUserController::class, "updateRhColaborator"])->name("colaborators.update-colaborator");
 });
