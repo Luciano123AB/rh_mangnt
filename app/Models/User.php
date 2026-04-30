@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
 
@@ -10,6 +11,7 @@ class User extends Authenticable
 {
     
     use Notifiable;
+    use SoftDeletes;
 
     public function detail() {
         //Each user has one user_details:
