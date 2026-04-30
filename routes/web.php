@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware("guest")->group(function() {
     //Email confirmation and password:
     Route::get("/confirm-account/{token}", [ConfirmAccountController::class, "confirmAccount"])->name("confirm-account");
+    Route::post("/confirm-account", [ConfirmAccountController::class, "confirmAccountSubmit"])->name("confirm-account-submit");
 });
 
 Route::middleware("auth")->group(function() {
