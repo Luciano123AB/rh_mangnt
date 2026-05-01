@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ColaboratorsController;
 use App\Http\Controllers\ConfirmAccountController;
 use App\Http\Controllers\DepartmentController;
@@ -19,7 +20,7 @@ Route::middleware("auth")->group(function() {
     Route::get("/home", function() {
         //Check if user is admin:
         if (auth()->user()->role === "admin") {
-            die("Vai para a página inicial do ADMIN.");
+            return redirect()->route("admin.home");
         } elseif (auth()->user()->role === "rh") {
             return redirect()->route("rh.management.home");
         } else {
@@ -60,4 +61,7 @@ Route::middleware("auth")->group(function() {
     Route::get("/colaborators/delete/{id}", [ColaboratorsController::class, "deleteColaborator"])->name("colaborators.delete");
     Route::get("/colaborators/delete-confirm/{id}", [ColaboratorsController::class, "deleteColaboratorConfirm"])->name("colaborators.delete-confirm");
     Route::get("/colaborators/restore/{id}", [ColaboratorsController::class, "restoreColaborator"])->name("colaborators.restore");
+
+    //Admin routes:
+    Route::get("/admin/home", [AdminController::class, "home"])->name("admin.home");
 });
