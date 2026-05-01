@@ -9,6 +9,8 @@
         @if ($colaborators->count() === 0)
             <div class="text-center my-5">
                 <p>No colaborators found.</p>
+
+                <a href="{{ route("rh.management.new-colaborator") }}" class="btn btn-primary">Create a New Colaborator</a>
             </div>
         @else
             <table class="table" id="table">
