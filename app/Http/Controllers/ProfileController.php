@@ -9,7 +9,10 @@ use Illuminate\View\View;
 class ProfileController extends Controller
 {
     public function index(): View {
-        return view("user.profile");
+
+        $colaborator = User::with("detail")->findOrFail(auth()->id());
+
+        return view("user.profile", compact("colaborator"));
     }
 
     public function updatePassword(Request $request) {

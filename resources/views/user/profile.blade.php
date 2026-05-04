@@ -11,9 +11,9 @@
                 <x-profile-user-change-password />
 
                 {{-- Component name - email --}}
-                <x-profile-user-change-data />
+                <x-profile-user-change-data :colaborator="$colaborator" />
 
-                <x-profile-user-change-address />
+                <x-profile-user-change-address :colaborator="$colaborator" />
             </div>
         </div>
     </div>
