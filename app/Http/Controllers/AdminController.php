@@ -22,7 +22,7 @@ class AdminController extends Controller
         $data["total_colaborators_deleted"] = User::onlyTrashed("deleted_at")->count();
 
         //Total salary for all colaborators:
-        $data["total_salary"] = User::withTrashed("deleted_at")
+        $data["total_salary"] = User::withoutTrashed("deleted_at")
                                     ->with("detail")
                                     ->get()
                                     ->sum(function ($colaborator) {
