@@ -38,7 +38,7 @@ class AdminController extends Controller
                                                         ->groupBy("department_id")
                                                         ->map(function ($department) {
                                                             return [
-                                                                "department" => $department->first()->department_name ?? "-",
+                                                                "department" => $department->first()->department->name ?? "-",
                                                                 "total" => $department->count()
                                                             ];
                                                         });
@@ -50,7 +50,7 @@ class AdminController extends Controller
                                                     ->groupBy("department_id")
                                                     ->map(function ($department) {
                                                         return [
-                                                            "department" => $department->first()->department_name ?? "-",
+                                                            "department" => $department->first()->department->name ?? "-",
                                                             "total" => $department->sum(function ($colaborator) {
                                                                 return $colaborator->detail->salary;
                                                             })
