@@ -38,7 +38,7 @@ class AdminController extends Controller
                                                         ->groupBy("department_id")
                                                         ->map(function ($department) {
                                                             return [
-                                                                "department" => $department->first()->department_name ?? "-",
+                                                                "department" => $department->first()->department->name ?? "-",
                                                                 "total" => $department->count()
                                                             ];
                                                         });
@@ -50,12 +50,20 @@ class AdminController extends Controller
                                                     ->groupBy("department_id")
                                                     ->map(function ($department) {
                                                         return [
-                                                            "department" => $department->first()->department_name ?? "-",
+                                                            "department" => $department->first()->department->name ?? "-",
                                                             "total" => $department->sum(function ($colaborator) {
                                                                 return $colaborator->detail->salary;
                                                             })
                                                         ];
                                                     });
+
+        //Format salary:
+        $data["total_salary_by_department"] = $data["total_salary_by_department"]->map(function ($department) {
+            return [
+                "department" => $department["department"],
+                "total" => number_format($department["total"], 2, ",", ".") . " $"
+            ];
+        });
 
         //Display admin home page.
         return view('home', compact("data"));
