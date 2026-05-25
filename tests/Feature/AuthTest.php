@@ -38,6 +38,24 @@ it("test if an admin user can login with success", function () {
     expect($result->assertRedirect("/home"));
 });
 
+it("test if a rh user can login with success", function () {
+    //Criar o usuário rh:
+    addRhUser();
+
+    //Login com o rh:
+    $result = $this->post("/login", [
+        'email' => 'rh01@rhmangnt.com',
+        'password' => 'Aa123456'
+    ]);
+
+    //Verifica se o user rh fez login com sucesso:
+    expect($result->status())->toBe(302);
+    expect($result->assertRedirect("/home"));
+
+    //Verifica se o user rh consegue acesso a página exclusiva:
+    expect($this->get("/rh-users/management/home")->status())->toBe(200);
+});
+
 function addAdminUser() {
     //Create admin user:
     User::insert([
@@ -48,6 +66,21 @@ function addAdminUser() {
         'password' => bcrypt('Aa123456'),
         'role' => 'admin',
         'permissions' => '["admin"]',
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+}
+
+function addRhUser() {
+    //Create rh user:
+    User::insert([
+        'department_id' => 2,
+        'name' => 'Colaborador de RH',
+        'email' => 'rh01@rhmangnt.com',
+        'email_verified_at' => now(),
+        'password' => bcrypt('Aa123456'),
+        'role' => 'rh',
+        'permissions' => '["rh"]',
         'created_at' => now(),
         'updated_at' => now()
     ]);
