@@ -38,7 +38,7 @@ it("test if an admin user can login with success", function () {
     expect($result->assertRedirect("/home"));
 });
 
-it("test if a rh user can login with success", function () {
+it("test if an rh user can login with success", function () {
     //Criar o usuário rh:
     addRhUser();
 
