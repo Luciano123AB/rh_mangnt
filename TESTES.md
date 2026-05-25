@@ -12,6 +12,6 @@
 >> - Testar a inserção de um novo colaborador com o perfil do rh.
 
 >> - Testar se um admin, após login com sucesso, consegue ver a página de colaboradores rh.
-- Testar se, sem usuário logado, é possível aceder à página home.
+>> - Testar se, sem usuário logado, é possível aceder à página home.
 - Testar se, com usuário logado, é possível aceder à página login.
 - Testar se, estando logado, é possivel aceder à página de recuperação de senha.
