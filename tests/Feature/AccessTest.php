@@ -22,8 +22,18 @@ it("tests if user logged in can access the login page", function () {
     //Adicionar admin à base de dados:
     addAdminUser();
 
-    //Verifica se está logado:
+    //Login automatico:
     auth()->loginUsingId(1);
 
     expect($this->get("/login")->status())->not()->toBe(200);
+});
+
+it("tests if user logged in can access the recover password page", function () {
+    //Adicionar admin à base de dados:
+    addAdminUser();
+
+    //Login automatico:
+    auth()->loginUsingId(1);
+
+    expect($this->get("/forgot-password")->status())->not()->toBe(200);
 });
