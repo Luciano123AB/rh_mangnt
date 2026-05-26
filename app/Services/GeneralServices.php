@@ -32,4 +32,39 @@ class GeneralServices
 
         return json_encode($clients, JSON_PRETTY_PRINT);
     }
+
+    public static function jsonComplexData() {
+        return json_encode(
+            [
+                "name" => "João Ribeiro",
+                "email" => "joaoribeiro@gmail.com",
+                "moradas" => [
+                    [
+                        "rua" => "Rua 01",
+                        "cidade" => "Lisboa",
+                        "pais" => "Portugal"
+                    ],
+
+                    [
+                        "rua" => "Rua 02",
+                        "cidade" => "Porto",
+                        "pais" => "Portugal"
+                    ]
+                ],
+                "telefones" => [
+                    "phones" => [
+                        "123456789",
+                        "987654321",
+                        "123456789"
+                    ],
+
+                    "mobiles" => [
+                        "987654321",
+                        "123456789",
+                        "987654321"
+                    ]
+                ]
+            ]
+        );
+    }
 }
