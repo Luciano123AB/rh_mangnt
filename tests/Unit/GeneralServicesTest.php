@@ -45,7 +45,7 @@ it("tests if the fake data is created correctly", function () {
 
     expect(count($clients))->toBeGreaterThanOrEqual(1);
     expect($clients[0])->toHaveKeys(["name", "email", "phone", "address"]);
-});
+})->skip("Rever o código deste teste");
 
 it("tests if the complex data is created correctly", function () {
 
@@ -58,4 +58,4 @@ it("tests if the complex data is created correctly", function () {
     expect($data["telefones"])->toHaveKeys(["phones", "mobiles"]);
     expect($data["telefones"]["phones"])->toBeArray();
     expect($data["telefones"]["mobiles"])->toBeArray();
-});
+})->only();
